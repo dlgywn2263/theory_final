@@ -1,26 +1,26 @@
 "use client";
-import { Heart } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { useState } from "react";
 
 const Page = () => {
-  const [num, setNum] = useState(0);
-  const plus = () => {
-    setNum((x) => x + 1);
-  };
-  const minus = () => {
-    setNum((x) => x - 1);
-  };
-  const [fill, setFill] = useState(false);
+  const [input, setInput] = useState("");
+  const [todo, setTodo] = useState("");
   return (
-    <div className="flex flex-row gap-3 items-center">
-      <button onClick={minus}>-</button>
-      <span style={{ color: num >= 5 ? "green" : num <= -5 ? "red" : "black" }}>
-        {num}
-      </span>
-      <button onClick={plus}>+</button>
-
-      <Heart fill={fill ? "red" : "white"} onClick={() => setFill((x) => !x)} />
-    </div>
+    <>
+      <div className="flex">
+        <input
+          className="border-2 border-blue-300"
+          onChange={input}
+          type="text"
+        />
+        <button className="bg-pink-200">등록</button>
+      </div>
+      <div>
+        <span>오늘 할일</span>
+        <span>{todo}</span>
+        <Trash2 />
+      </div>
+    </>
   );
 };
 
